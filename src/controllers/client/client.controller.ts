@@ -3,6 +3,8 @@ import { createPost, findAllPosts } from '../../services/post.service';
 import { User } from '../../models/user.model';
 
 export class ClientsController{
+
+//Clients creating job post
  async createJobPost  (req: any, res: Response)  {
     const { title, description } = req.body;
     try {
@@ -16,7 +18,8 @@ export class ClientsController{
     }
 };
 
- async getAllJobPosts  (req: Request, res: Response)  {
+// Clients can view all the post
+async getAllJobPosts  (req: Request, res: Response)  {
     try {
         const posts = await findAllPosts();
         res.status(200).json(posts);

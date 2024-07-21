@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/user.model';
 
+// Middleware to authenticate user as per role 
 export const authenticate = (roles: string[]) => {
     return async (req: any, res: Response, next: NextFunction) => {
         const token = req.header('Authorization')?.replace('Bearer ', '');

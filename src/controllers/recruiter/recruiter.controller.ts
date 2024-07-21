@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import { Post } from '../../models/post.model';
 export class RecruiterController{
+
+// Recruiters can view the post wich are assigned to them
  async getAssignedPosts  (req: any, res: Response)  {
     try {
         const posts = await Post.find({ recruiter: req.user.id }).populate('client');
@@ -10,7 +12,8 @@ export class RecruiterController{
     }
 };
 
- async addNoteToPost  (req: any, res: Response)  {
+// Recruiters can add note to the Job post
+async addNoteToPost  (req: any, res: Response)  {
     const { postId, note } = req.body;
     try {
         const post = await Post.findById(postId);

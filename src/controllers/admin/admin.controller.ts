@@ -3,6 +3,8 @@ import { User } from '../../models/user.model';
 
 export class AdminController {
 
+
+// Admins can create recruiter
  async createRecruiter (req: Request, res: Response) {
     const { email, password,name } = req.body;
     try {
@@ -19,6 +21,7 @@ export class AdminController {
     }
 };
 
+//Admin can fetch all the recruiter
  async getAllRecruiters (req: Request, res: Response) {
     try {
         const recruiters = await User.find({ role: 'Recruiter' });
@@ -28,6 +31,7 @@ export class AdminController {
     }
 };
 
+//Admin can fetch all the clients
  async getAllClients (req: Request, res: Response) {
     try {
         const clients = await User.find({ role: 'Client' });

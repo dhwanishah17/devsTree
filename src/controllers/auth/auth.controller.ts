@@ -3,6 +3,8 @@ import { createUser, findUserByEmail } from '../../services/user.service';
 import { generateToken } from '../../utils/jwt.util';
 
 export class AuthController{
+
+// Creating user as per role
 async register (req: Request, res: Response) {
     const { email, password, role ,name} = req.body;
     try {
@@ -21,6 +23,7 @@ async register (req: Request, res: Response) {
     }
 };
 
+//Login user api 
 async login (req: Request, res: Response) {
     const { email, password } = req.body;
     try {
